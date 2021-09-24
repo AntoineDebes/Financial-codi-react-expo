@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text } from "react-native";
-function batata() {
+function batata({ navigation }) {
   return (
     <View>
-      <Text>hello from batat </Text>
+      <Text>hello from expenses page</Text>
     </View>
   );
 }

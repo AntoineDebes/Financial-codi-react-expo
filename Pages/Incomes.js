@@ -3,8 +3,7 @@ import { View, StyleSheet, Button, Text } from "react-native";
 function styleComponent({ navigation }) {
   return (
     <View>
-      <Text>hello from home page </Text>
-      <Button title="Click me" onPress={() => navigation.navigate("batat")} />
+      <Text>hello from Income page </Text>
     </View>
   );
 }
