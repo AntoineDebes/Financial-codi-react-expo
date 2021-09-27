@@ -1,24 +1,26 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Reports from "./Pages/Reports";
 import PostData from "./Pages/PostData";
 import Incomes from "./Pages/Incomes";
 import Expenses from "./Pages/expenses";
+import Login from "./Pages/Login";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 // const Stack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
 
 export default function App() {
+  const Drawer = createDrawerNavigator();
   return (
     <NavigationContainer>
-      <Drawer.Navigator defaultScreenOptions="Reports">
+      <Drawer.Navigator defaultScreenOptions="Login">
         <Drawer.Screen name="Reports" component={Reports} />
         <Drawer.Screen name="Add Data" component={PostData} />
         <Drawer.Screen name="Imcomes" component={Incomes} />
         <Drawer.Screen name="Expenses" component={Expenses} />
+        <Drawer.Screen name="Login" component={Login} />
       </Drawer.Navigator>
     </NavigationContainer>
     // <NavigationContainer>
