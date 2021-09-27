@@ -3,20 +3,29 @@ import { StyleSheet, TextInput, View, Text, Pressable } from "react-native";
 import Axios from "axios";
 
 export default function Login() {
-  const [{ email, password }, setUserCredential] = useState({
-    email: "",
-    passwowrd: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const onChangeHandler = (e) => {
-    setUserCredential((input) => ({
-      ...input,
-      [e.target.name]: e.target.value,
-    }));
+  const onChangeInputEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const onChangeInputPassword = (e) => {
+    setPassword(e.target.value);
   };
 
   const onPressSignInBtn = () => {
-    Axios.post("http:/")
+    // alert("press working");
+    Axios.post("http://127.0.0.1:8000/api/auth/login", {
+      email,
+      password,
+    })
+      .then((res) => {
+        console.log({ res });
+      })
+      .catch((e) => {
+        console.log({ e });
+      });
   };
 
   return (
@@ -27,18 +36,18 @@ export default function Login() {
         <TextInput
           style={styles.input}
           name="email"
-          onChange={(e) => onChangeHandler(e)}
+          onChange={(e) => onChangeInputEmail(e)}
         />
         <Text style={styles.inputTextPassword}>Password</Text>
         <TextInput
           style={styles.input}
           autoCompleteType="password"
           name="password"
-          onChange={(e) => onChangeHandler(e)}
+          onChange={(e) => onChangeInputPassword(e)}
         />
         <View style={styles.buttonContainer}></View>
         <Pressable
-          // onPress={onPressLearnMore}
+          onPress={onPressSignInBtn}
           title="Sign In"
           style={styles.button}
         >
